@@ -49,3 +49,7 @@ jobs:
           sudo kubectl get nodes
           sudo kubectl get pods --all-namespaces
           
+      - name: Trace memory
+        run: |
+          free -m
+          
