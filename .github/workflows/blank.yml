@@ -21,6 +21,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      
+      - name: Echo infos
+        run: |
+          hostname
+          ip addr
+          
+      - name: Remove docker
+        run:  sudo apt-get remove docker docker-engine docker.io containerd runc
 
       - name: Install sealos
         run: |
@@ -29,9 +37,8 @@ jobs:
           sudo apt install sealos
           sudo sealos version
           
-      
       - name: Install kubernetes
         run: |
-          # sudo -u root sealos run labring/kubernetes:v1.24.0  labring/calico:v3.24.1 --single
-          sudo -u root sealos run labring/kubernetes-docker:v1.20.15 labring/calico:v3.22.1 --single
+          sudo -u root sealos run labring/kubernetes:v1.24.0  labring/calico:v3.24.1 --single
+          # sudo -u root sealos run labring/kubernetes-docker:v1.20.15 labring/calico:v3.22.1 --single
     
