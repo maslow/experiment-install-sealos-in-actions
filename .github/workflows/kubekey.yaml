@@ -36,7 +36,7 @@ jobs:
 
       - name: Install k8s
         run: |
-          sudo ./kk create cluster --with-kubernetes v1.22.10
+          sudo ./kk create cluster --with-kubernetes v1.22.10 -y
           
       - name: Slepp 20s - Show Results
         run: |
