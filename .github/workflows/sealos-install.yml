@@ -22,11 +22,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
-#       - name: Echo infos
-#         run: |
-#           hostname
-#           ip addr
-#           which docker || true
+      - name: Echo infos
+        run: |
+          hostname
+          ip addr
+          which docker || true
           
       - name: Remove docker
         run: |
@@ -45,7 +45,18 @@ jobs:
           
       - name: Install kubernetes
         run: |
-          sudo -u root sealos run labring/kubernetes:v1.22.10  labring/calico:v3.22.1 --single
-          # sudo -u root sealos run labring/kubernetes:v1.24.0  labring/calico:v3.24.1 --single
-          # sudo -u root sealos run labring/kubernetes-docker:v1.20.15 labring/calico:v3.22.1 --single
-    
+          #sudo -u root sealos run labring/kubernetes:v1.22.10  labring/calico:v3.22.1 --single
+          sudo -u root sealos run labring/kubernetes:v1.24.0  labring/calico:v3.24.1 --single
+
+      - name: Wait 30s for ready
+        run: |
+          sleep 30s
+          sudo kubectl get nodes
+          
+      - name: Wait 30s for get pods
+        run: |
+          sleep 30s
+          sudo kubectl get pods -A
+          
+      - name: Trace meory
+        run: free -m
