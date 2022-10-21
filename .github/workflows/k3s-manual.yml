@@ -21,16 +21,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
       # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
+      - name: Install k3s
         run: |
           curl -sfL https://get.k3s.io | sh -
+          
+      - name: Sleep 20s & Get nodes
+        run: |
           sleep 20s
           sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get nodes
           sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods --all-namespaces
 
+      - name: Sleep 30s & Get pods
+        run: |
+          sleep 30s
+          sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods --all-namespaces
 
