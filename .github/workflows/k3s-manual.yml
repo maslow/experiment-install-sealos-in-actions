@@ -26,14 +26,15 @@ jobs:
         run: |
           curl -sfL https://get.k3s.io | sh -
           
-      - name: Sleep 20s & Get nodes
+      - name: Sleep 20s - Get nodes
         run: |
           sleep 20s
           sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get nodes
-          sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods --all-namespaces
 
-      - name: Sleep 30s & Get pods
+      - name: Sleep 50s - Get pods
         run: |
-          sleep 30s
+          sleep 50s
           sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods --all-namespaces
 
+      - name: Helm ?
+        run: sudo helm --kubeconfig /etc/rancher/k3s/k3s.yaml ls --all-namespaces
