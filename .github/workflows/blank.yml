@@ -29,7 +29,9 @@ jobs:
           sudo apt install sealos
           sudo sealos version
           
+      
       - name: Install kubernetes
         run: |
-          sudo -u root sealos run labring/kubernetes:v1.24.0 labring/helm:v3.8.2 labring/calico:v3.24.1 --single
+          # sudo -u root sealos run labring/kubernetes:v1.24.0  labring/calico:v3.24.1 --single
+          sudo -u root sealos run labring/kubernetes-docker:v1.20.15 labring/calico:v3.22.1 --single
     
