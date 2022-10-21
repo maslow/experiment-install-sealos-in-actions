@@ -33,5 +33,5 @@ jobs:
       - name: Run a multi-line script
         run: |
           echo "deb [trusted=yes] https://apt.fury.io/labring/ /" | tee /etc/apt/sources.list.d/labring.list
-          apt update
-          apt install sealos
+          sudo apt update
+          sudo apt install sealos
