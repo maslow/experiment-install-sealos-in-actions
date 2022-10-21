@@ -31,9 +31,9 @@ jobs:
           sleep 20s
           sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get nodes
 
-      - name: Sleep 50s - Get pods
+      - name: Sleep 30s - Get pods
         run: |
-          sleep 50s
+          sleep 30s
           sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods --all-namespaces
 
       - name: Helm ?
