@@ -38,7 +38,12 @@ jobs:
         run: |
           sudo ./kk create cluster --with-kubernetes v1.22.10 -y
           
-      - name: Slepp 20s - Show Results
+      - name: Slepp 20s - get nodes
         run: |
+          sleep 20s
           sudo kubectl get nodes
-
+          
+      - name: Sleep 30s - get pods
+        run: |
+          sleep 30s
+          sudo kubectl get pods --all-namespaces
