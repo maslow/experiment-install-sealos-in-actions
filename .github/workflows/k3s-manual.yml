@@ -30,6 +30,6 @@ jobs:
         run: |
           curl -sfL https://get.k3s.io | sh -
           sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods --all-namespaces
-          sudo kubectl get nodes
+          sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get nodes
 
 
