@@ -22,6 +22,10 @@ jobs:
 
     steps:
       # Runs a set of commands using the runners shell
+      - name: Trace memory
+        run: |
+          free -m
+          
       - name: Install k3s
         run: |
           curl -sfL https://get.k3s.io | sh -
