@@ -46,4 +46,6 @@ jobs:
       - name: Sleep 30s - get pods
         run: |
           sleep 30s
+          sudo kubectl get nodes
           sudo kubectl get pods --all-namespaces
+          
