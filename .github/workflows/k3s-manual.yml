@@ -29,7 +29,8 @@ jobs:
       - name: Run a multi-line script
         run: |
           curl -sfL https://get.k3s.io | sh -
-          sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods --all-namespaces
+          sleep 20s
           sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get nodes
+          sudo kubectl --kubeconfig /etc/rancher/k3s/k3s.yaml get pods --all-namespaces
 
 
