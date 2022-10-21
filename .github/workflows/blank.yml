@@ -27,6 +27,7 @@ jobs:
           hostname
           ip addr
           which docker || true
+          docker info
           
       - name: Remove docker
         run: |
