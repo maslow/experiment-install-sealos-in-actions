@@ -28,12 +28,13 @@ jobs:
 #           ip addr
 #           which docker || true
           
-#       - name: Remove docker
-#         run: |
-#           sudo apt-get remove docker docker-engine docker.io containerd runc
-#           sudo apt-get purge docker-ce docker-ce-cli containerd.io # docker-compose-plugin
-#           sudo rm -rf /var/lib/docker
-#           sudo rm -rf /var/lib/containerd
+      - name: Remove docker
+        run: |
+          sudo apt-get remove docker docker-engine docker.io containerd runc
+          sudo apt-get purge docker-ce docker-ce-cli containerd.io # docker-compose-plugin
+          sudo rm -rf /var/lib/docker
+          sudo rm -rf /var/lib/containerd
+          sudo apt-get remove -y moby-engine moby-cli moby-buildx moby-compose
 
       - name: Install sealos
         run: |
