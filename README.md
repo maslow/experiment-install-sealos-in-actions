@@ -4,12 +4,12 @@
 
 - sealos: 
   - 未内置 helm 
-  - 速度较慢: 2m40s
   - 支持集群镜像
   - 需要使用专用版镜像支持 docker，不会自动安装 docker
   - 内存占用较大：1750M - 500M = 1250M
+  - 速度较慢: 2m40s
 - kubekey
-  - 需要手动安装 socat, ipset 等（不过，命令行有预检提示）
+  - 需要手动安装 socat, conntrack, ebtables, ipset 等依赖
   - 内置 helm 等
   - 支持 docker，可自动安装 docker
   - 速度较慢: 2m20s
